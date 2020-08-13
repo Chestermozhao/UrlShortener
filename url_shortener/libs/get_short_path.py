@@ -1,3 +1,4 @@
+import os
 import random
 from url_shortener.libs.const import BASIC_CHARS, PATH_LENGTH
 from url_shortener.libs.sqls import query_pattern
@@ -29,7 +30,8 @@ def object_as_dict(obj):
 def get_short_link(request, short_path):
     schema = request.scope.get("scheme")
     host_tuple = request.scope.get("server")
-    host = "{host}:{port}".format(host=host_tuple[0], port=host_tuple[1])
+    host_name = os.getenv("HOST_HOSTNAME") or host_tuple[0]
+    host = "{host}:{port}".format(host=host_name, port=host_tuple[1])
     short_path = "{schema}://{host}/{short_path}".format(
         schema=schema, host=host, short_path=short_path
     )
