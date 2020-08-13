@@ -2,13 +2,11 @@ import arrow
 import databases
 import sqlalchemy
 
-# TODO(zhaoquan): save to const.py
 DATABASE_URL = "sqlite:///./url_shorten.db"
 
 database = databases.Database(DATABASE_URL)
 metadata = sqlalchemy.MetaData()
 
-print(dir(sqlalchemy.Table))
 urlshorteners = sqlalchemy.Table(
     "urlshortener",
     metadata,
