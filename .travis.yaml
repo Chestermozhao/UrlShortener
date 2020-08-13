@@ -1,5 +1,6 @@
 env:
   - PRJ_ENV="test"
+  - HOST_HOSTNAME="localhost"
 
 language: python
 branches:
@@ -11,4 +12,6 @@ python:
 install:
   - pip install -r requirements.txt
 
-#script:
+script:
+  - pytest tests/test_doc.py
+  - pytest tests/test_shorten_url.py

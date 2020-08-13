@@ -55,7 +55,7 @@ async def create_shorten_urls(shorten: UrlShortenerIn, request: Request):
     result = await get_data("origin_url", origin_url)
     if result is not None:
         short_link = get_short_link(request, result["short_path"])
-        return {**result, "short_link": short_link}
+        return {**result, "short_link": short_link, "status": 0}
     short_path = await create_short_path()
     query = urlshorteners.insert().values(
         origin_url=shorten.origin_url, short_path=short_path
@@ -63,7 +63,7 @@ async def create_shorten_urls(shorten: UrlShortenerIn, request: Request):
     shorten_id = await database.execute(query)
     result = await get_data("id", shorten_id)
     short_link = get_short_link(request, result["short_path"])
-    return {**result, "short_link": short_link}
+    return {**result, "short_link": short_link, "status": 0}
 
 
 @app.get("/{short_path}")
@@ -79,7 +79,7 @@ async def show_origin_page(short_path: str):
                 html_content = await response.content.read()
                 if html_content:
                     return HTMLResponse(content=html_content, status_code=200)
-    except Exception as e:
-        return {"status": -1, "errMsg": str(e)}
+    except Exception:
+        return {"status": -1, "errMsg": "request origin url failed"}
 
-    return {"status": -1, "errMsg": "request origin url failed"}
+    return {"status": -1, "errMsg": "there is no html response"}
