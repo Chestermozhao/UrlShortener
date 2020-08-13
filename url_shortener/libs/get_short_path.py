@@ -1,7 +1,7 @@
 import random
-from libs.const import BASIC_CHARS, PATH_LENGTH
-from libs.sqls import query_pattern
-from database import database
+from url_shortener.libs.const import BASIC_CHARS, PATH_LENGTH
+from url_shortener.libs.sqls import query_pattern
+from url_shortener.database import database
 from sqlalchemy import inspect
 
 
