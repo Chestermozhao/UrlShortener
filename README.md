@@ -10,7 +10,7 @@ src="https://travis-ci.com/caiyunapp/caiyun-weather-dashboard.svg?token=W2LJe9sY
 
 # Build and Run server with Docker
 - `docker build -t url_shortener:latest .`
-- `docker run -e HOST_HOSTNAME=localhost -p 8000:8000 urlshortener`
+- `docker run -e HOST_HOSTNAME=localhost -p 8000:8000 url_shortener`
 - swagger doc: open `http://localhost:8000` on your chrome browser
 
 # Start service with Python
