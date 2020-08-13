@@ -6,14 +6,14 @@ from fastapi.responses import HTMLResponse
 from starlette.responses import RedirectResponse
 from starlette.requests import Request
 
-from serializers.schemas import (
+from url_shortener.serializers.schemas import (
     UrlShortenersOut,
     UrlShortenerOut,
     UrlShortenerIn,
 )
-from database import database, urlshorteners
-from utils.config import cfg, env
-from libs.get_short_path import (
+from url_shortener.database import database, urlshorteners
+from url_shortener.utils.config import cfg, env
+from url_shortener.libs.get_short_path import (
     get_data,
     create_short_path,
     get_short_link,
