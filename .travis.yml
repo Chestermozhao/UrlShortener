@@ -1,0 +1,16 @@
+env:
+  - PRJ_ENV="test" HOST_HOSTNAME="localhost" PYTHONPATH=$PWD
+
+language: python
+branches:
+  except:
+      - master
+python:
+  - '3.6'
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - pytest tests/test_doc.py
+  - pytest tests/test_shorten_url.py
