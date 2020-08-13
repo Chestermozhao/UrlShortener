@@ -1,6 +1,5 @@
 env:
-  - PRJ_ENV="test"
-  - HOST_HOSTNAME="localhost"
+  - PRJ_ENV="test" HOST_HOSTNAME="localhost" PYTHONPATH=$PWD
 
 language: python
 branches:

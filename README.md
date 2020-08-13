@@ -28,3 +28,9 @@ src="https://travis-ci.com/caiyunapp/caiyun-weather-dashboard.svg?token=W2LJe9sY
 - You can create a short URL by POST [/shortener/](http://localhost:8000/shortener/).
 - After getting the short URL, you can request it and get the website.
 ![./images/demo.gif](./images/demo.gif)
+
+# Test
+- Run test cases
+  - `pytest tests/test_doc.py`
+  - `pytest tests/test_shorten_url.py`
+- CI: travis
